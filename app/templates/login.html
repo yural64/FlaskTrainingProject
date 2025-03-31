@@ -1,18 +1,25 @@
 {% extends 'base.html' %}
+
 {% block content %}
-    <h1>Вход</h1>
-    <form method="post" action="{{ url_for('login')}}">
+<div class="container mt-5">
+    <h1 class="text-center">Вход</h1>
+    <form method="post" action="{{ url_for('login') }}" class="mx-auto" style="max-width: 400px;">
         {{ form.hidden_tag() }}
-        <div>
-            {{ form.username.label }}
-            {{ form.username }}
+
+        <div class="mb-3">
+            <label for="{{ form.username.id }}" class="form-label">{{ form.username.label }}</label>
+            {{ form.username(class="form-control") }}
         </div>
-        <div>
-            {{ form.password.label }}
-            {{ form.password }}
+
+        <div class="mb-3">
+            <label for="{{ form.password.id }}" class="form-label">{{ form.password.label }}</label>
+            {{ form.password(class="form-control") }}
         </div>
-        <div>
-            {{ form.submit }}
+
+        <div class="mb-3 text-center">
+            {{ form.submit(class="btn btn-primary w-100") }}
         </div>
     </form>
+</div>
 {% endblock %}
+
